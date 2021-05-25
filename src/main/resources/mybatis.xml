@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+<!-- 数据库资源配置文件 -->
+<configuration>
+	
+	<properties resource="db.properties"></properties>
+	
+	<!-- 别名设置 -->
+	<typeAliases>
+		<package name="com.iflytek.om.domain"/>
+		<package name="com.iflytek.om.domain.vo"/>
+	</typeAliases>
+	
+	
+	<!-- 数据库资源配置 -->
+	<environments default="sql1">
+		<environment id="sql1">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${user}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+		
+	</environments>	
+	
+	
+	<!-- 加载映射文件 -->
+	<mappers>
+		<mapper resource="mybatis/User.xml"/>
+		<mapper resource="mybatis/Music.xml"/>
+		<mapper resource="mybatis/Collection.xml"/>
+	</mappers>
+
+</configuration>
